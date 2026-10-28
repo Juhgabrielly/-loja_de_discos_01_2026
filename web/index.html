@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VINIL | Controle de Estoque</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <aside class="sidebar">
+        <h1>◉ VINIL</h1>
+        <p>Discos & Acervo</p>
+
+        <nav>
+            <button data-page="inicio">Visão geral</button>
+            <button data-page="discos">Discos</button>
+            <button data-page="movimentacoes">Movimentações</button>
+            <button data-page="usuarios">Usuários</button>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <div>
+                <small>SISTEMA DE ESTOQUE</small>
+                <h2 id="titulo-pagina">Visão geral</h2>
+            </div>
+            <span id="status-api">Verificando API...</span>
+        </header>
+
+        <section id="inicio" class="pagina ativa">
+            <div class="banner">
+                <small>BEM-VINDA AO VINIL</small>
+                <h2>Seu acervo no ritmo certo.</h2>
+                <p>Gerencie seus discos e acompanhe as movimentações do estoque.</p>
+            </div>
+
+            <div class="cards">
+                <article>
+                    <p>Discos cadastrados</p>
+                    <h2 id="total-discos">0</h2>
+                </article>
+                <article>
+                    <p>Unidades em estoque</p>
+                    <h2 id="total-unidades">0</h2>
+                </article>
+                <article>
+                    <p>Estoque baixo</p>
+                    <h2 id="estoque-baixo">0</h2>
+                </article>
+                <article>
+                    <p>Movimentações</p>
+                    <h2 id="total-movimentacoes">0</h2>
+                </article>
+            </div>
+
+            <div class="painel">
+                <h3>Discos com estoque baixo</h3>
+                <div id="lista-estoque-baixo"></div>
+            </div>
+        </section>
+
+        <section id="discos" class="pagina">
+            <div class="cabecalho-secao">
+                <div>
+                    <h2>Catálogo de discos</h2>
+                    <p>Cadastre e gerencie os discos.</p>
+                </div>
+                <button class="botao" onclick="abrirDisco()">+ Cadastrar disco</button>
+            </div>
+
+            <input id="buscar-disco" class="busca" placeholder="Buscar por título ou artista...">
+
+            <div class="tabela">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Disco</th>
+                            <th>Artista</th>
+                            <th>Gênero</th>
+                            <th>Preço</th>
+                            <th>Estoque</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-discos"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="movimentacoes" class="pagina">
+            <div class="cabecalho-secao">
+                <div>
+                    <h2>Movimentações</h2>
+                    <p>Registre entradas e saídas do estoque.</p>
+                </div>
+                <button class="botao" onclick="abrirMovimentacao()">+ Nova movimentação</button>
+            </div>
+
+            <div class="tabela">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Disco</th>
+                            <th>Usuário</th>
+                            <th>Tipo</th>
+                            <th>Quantidade</th>
+                            <th>Observação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-movimentacoes"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="usuarios" class="pagina">
+            <div class="cabecalho-secao">
+                <div>
+                    <h2>Usuários</h2>
+                    <p>Gerencie os usuários do sistema.</p>
+                </div>
+                <button class="botao" onclick="abrirUsuario()">+ Cadastrar usuário</button>
+            </div>
+
+            <input id="buscar-usuario" class="busca" placeholder="Buscar por nome ou e-mail...">
+
+            <div class="tabela">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>E-mail</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-usuarios"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-conteudo">
+            <button class="fechar" onclick="fecharModal()">×</button>
+            <h2 id="modal-titulo">Cadastro</h2>
+            <div id="modal-corpo"></div>
+        </div>
+    </div>
+
+    <div id="mensagem" class="mensagem"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
