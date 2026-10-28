@@ -1,0 +1,184 @@
+
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-10-28T10:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v10.0.0",
+  "resources": [
+    {
+      "_id": "wrk_vinil",
+      "parentId": null,
+      "name": "VINIL - API",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_vinil",
+      "parentId": "wrk_vinil",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000"
+      },
+      "_type": "environment"
+    },
+    {
+      "_id": "fld_usuario",
+      "parentId": "wrk_vinil",
+      "name": "Usuários",
+      "_type": "request_group"
+    },
+    {
+      "_id": "u1",
+      "parentId": "fld_usuario",
+      "name": "Cadastrar usuário",
+      "method": "POST",
+      "url": "{{ _.base_url }}/usuario/cadastrar",
+      "headers": [{"name": "Content-Type", "value": "application/json"}],
+      "body": {"mimeType": "application/json", "text": "{\"nome\":\"Usuário Teste\",\"email\":\"teste@vinil.com\",\"senha\":\"123456\"}"},
+      "_type": "request"
+    },
+    {
+      "_id": "u2",
+      "parentId": "fld_usuario",
+      "name": "Listar usuários",
+      "method": "GET",
+      "url": "{{ _.base_url }}/usuario/listar",
+      "headers": [],
+      "_type": "request"
+    },
+    {
+      "_id": "u3",
+      "parentId": "fld_usuario",
+      "name": "Buscar usuário por ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/usuario/buscar/1",
+      "headers": [],
+      "_type": "request"
+    },
+    {
+      "_id": "u4",
+      "parentId": "fld_usuario",
+      "name": "Atualizar usuário",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/usuario/atualizar/1",
+      "headers": [{"name": "Content-Type", "value": "application/json"}],
+      "body": {"mimeType": "application/json", "text": "{\"nome\":\"Usuário Atualizado\",\"email\":\"teste@vinil.com\",\"senha\":\"123456\"}"},
+      "_type": "request"
+    },
+    {
+      "_id": "u5",
+      "parentId": "fld_usuario",
+      "name": "Excluir usuário",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/usuario/excluir/1",
+      "headers": [],
+      "_type": "request"
+    },
+    {
+      "_id": "fld_disco",
+      "parentId": "wrk_vinil",
+      "name": "Discos",
+      "_type": "request_group"
+    },
+    {
+      "_id": "d1",
+      "parentId": "fld_disco",
+      "name": "Cadastrar disco",
+      "method": "POST",
+      "url": "{{ _.base_url }}/disco/cadastrar",
+      "headers": [{"name": "Content-Type", "value": "application/json"}],
+      "body": {"mimeType": "application/json", "text": "{\"titulo\":\"Disco Teste\",\"artista\":\"Artista Teste\",\"genero\":\"Rock\",\"preco_custo\":30,\"preco_venda\":50,\"quantidade_estoque\":10,\"estoque_minimo\":2}"},
+      "_type": "request"
+    },
+    {
+      "_id": "d2",
+      "parentId": "fld_disco",
+      "name": "Listar discos",
+      "method": "GET",
+      "url": "{{ _.base_url }}/disco/listar",
+      "headers": [],
+      "_type": "request"
+    },
+    {
+      "_id": "d3",
+      "parentId": "fld_disco",
+      "name": "Buscar disco por ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/disco/buscar/1",
+      "headers": [],
+      "_type": "request"
+    },
+    {
+      "_id": "d4",
+      "parentId": "fld_disco",
+      "name": "Atualizar disco",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/disco/atualizar/1",
+      "headers": [{"name": "Content-Type", "value": "application/json"}],
+      "body": {"mimeType": "application/json", "text": "{\"titulo\":\"Disco Atualizado\",\"artista\":\"Artista Teste\",\"genero\":\"Rock\",\"preco_custo\":30,\"preco_venda\":55,\"quantidade_estoque\":10,\"estoque_minimo\":2}"},
+      "_type": "request"
+    },
+    {
+      "_id": "d5",
+      "parentId": "fld_disco",
+      "name": "Excluir disco",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/disco/excluir/1",
+      "headers": [],
+      "_type": "request"
+    },
+    {
+      "_id": "fld_mov",
+      "parentId": "wrk_vinil",
+      "name": "Movimentações de estoque",
+      "_type": "request_group"
+    },
+    {
+      "_id": "m1",
+      "parentId": "fld_mov",
+      "name": "Cadastrar movimentação",
+      "method": "POST",
+      "url": "{{ _.base_url }}/movimentacaoestoque/cadastrar",
+      "headers": [{"name": "Content-Type", "value": "application/json"}],
+      "body": {"mimeType": "application/json", "text": "{\"id_disco\":1,\"id_usuario\":1,\"tipo_movimentacao\":\"entrada\",\"quantidade\":5,\"data_movimentacao\":\"2026-10-28\",\"observacao\":\"Teste de entrada\"}"},
+      "_type": "request"
+    },
+    {
+      "_id": "m2",
+      "parentId": "fld_mov",
+      "name": "Listar movimentações",
+      "method": "GET",
+      "url": "{{ _.base_url }}/movimentacaoestoque/listar",
+      "headers": [],
+      "_type": "request"
+    },
+    {
+      "_id": "m3",
+      "parentId": "fld_mov",
+      "name": "Buscar movimentação por ID",
+      "method": "GET",
+      "url": "{{ _.base_url }}/movimentacaoestoque/buscar/1",
+      "headers": [],
+      "_type": "request"
+    },
+    {
+      "_id": "m4",
+      "parentId": "fld_mov",
+      "name": "Atualizar movimentação",
+      "method": "PUT",
+      "url": "{{ _.base_url }}/movimentacaoestoque/atualizar/1",
+      "headers": [{"name": "Content-Type", "value": "application/json"}],
+      "body": {"mimeType": "application/json", "text": "{\"id_disco\":1,\"id_usuario\":1,\"tipo_movimentacao\":\"entrada\",\"quantidade\":3,\"data_movimentacao\":\"2026-10-28\",\"observacao\":\"Movimentação atualizada\"}"},
+      "_type": "request"
+    },
+    {
+      "_id": "m5",
+      "parentId": "fld_mov",
+      "name": "Excluir movimentação",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/movimentacaoestoque/excluir/1",
+      "headers": [],
+      "_type": "request"
+    }
+  ]
+}
